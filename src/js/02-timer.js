@@ -57,10 +57,10 @@ flatpickr(refs.dateTimePicker, options);
 
 const setCountdownTimer = () => {
   const timerId = setInterval(() => {
-    let countdown = new Date(refs.dateTimePicker.value) - new Date();
+    const countdown = new Date(refs.dateTimePicker.value) - new Date();
     refs.btnStart.disabled = true;
     if (countdown >= 0) {
-      let timeObject = convertMs(countdown);
+      const timeObject = convertMs(countdown);
       refs.days.textContent = addLeadingZero(timeObject.days);
       refs.hours.textContent = addLeadingZero(timeObject.hours);
       refs.minutes.textContent = addLeadingZero(timeObject.minutes);
