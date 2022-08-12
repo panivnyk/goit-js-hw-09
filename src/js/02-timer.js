@@ -55,7 +55,7 @@ function addLeadingZero(value) {
 }
 flatpickr(refs.dateTimePicker, options);
 
-setCountdownTimer = () => {
+const setCountdownTimer = () => {
   const timerId = setInterval(() => {
     let countdown = new Date(refs.dateTimePicker.value) - new Date();
     refs.btnStart.disabled = true;
