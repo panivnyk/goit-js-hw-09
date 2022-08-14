@@ -74,6 +74,7 @@ const setCountdownTimer = () => {
       Notiflix.Notify.success('Finish!', {
         position: 'left-top',
       });
+      refs.dateTimePicker.disabled = false;
     }
   }, 1000);
 };
