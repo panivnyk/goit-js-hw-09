@@ -67,10 +67,10 @@ const setCountdownTimer = () => {
       refs.minutes.textContent = addLeadingZero(timeObject.minutes);
       refs.seconds.textContent = addLeadingZero(timeObject.seconds);
     } else {
-      Notiflix.Notify.success('Finish!', {
-        position: 'center-top',
-      });
       clearInterval(timerId);
+      Notiflix.Notify.success('Finish!', {
+        position: 'left-top',
+      });
     }
   }, 1000);
 };
