@@ -26,6 +26,7 @@ const options = {
         position: 'center-top',
       });
       refs.btnStart.disabled = true;
+      return;
     }
     refs.btnStart.disabled = false;
   },
