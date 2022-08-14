@@ -13,21 +13,25 @@ function dataForPromice(event) {
   let firstDelay = Number(delay.value);
   let delayStep = Number(step.value);
 
-  for (let i = 0; i < amount.value; i++) {
-    let nextTime = firstDelay + i * delayStep;
-    createPromise(1 + i, nextTime)
-      .then(({ position, delay }) => {
-        Notiflix.Notify.success(
-          `Fulfilled promise ${position} in ${delay}ms`,
-          {}
-        );
-      })
-      .catch(({ position, delay }) => {
-        Notiflix.Notify.failure(
-          `Rejected promise ${position} in ${delay}ms`,
-          {}
-        );
-      });
+  if (firstDelay < 0 || delayStep < 0 || amount.value < 0) {
+    Notiflix.Report.warning(
+      'Negative value(s) detected!',
+      'Only positive value can be entered in the field',
+      'Ok, I understand'
+    );
+  } else {
+    for (let i = 0; i < amount.value; i++) {
+      let nextTime = firstDelay + i * delayStep;
+      createPromise(1 + i, nextTime)
+        .then(({ position, delay }) => {
+          Notiflix.Notify.success(
+            `Fulfilled promise ${position} in ${delay}ms`
+          );
+        })
+        .catch(({ position, delay }) => {
+          Notiflix.Notify.failure(`Rejected promise ${position} in ${delay}ms`);
+        });
+    }
   }
 }
 
